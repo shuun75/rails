@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="title">
+    <h2>予定一覧</h2>
+    <%= link_to "新規追加", new_schedule_path %>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>タイトル</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>終日</th>
+        <th>更新日時</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @schedules.each do |schedule|%>
+        <tr>
+          <td>
+            <%= schedule.id %>
+          </td>
+          <td>
+            <%= schedule.title %>
+          </td>
+          <td>
+            2023/02/03
+          </td>
+          <td>
+            2023/02/11
+          </td>
+          <td>
+            <strong>○</strong>
+          </td>
+          <td>
+            <%= schedule.updated_at %>
+          </td>
+          <td>
+            <a href="#">詳細</a>
+          </td>
+          <td>
+            <a href="#">編集</a>
+          </td>
+          <td>
+            <a href="#">削除</a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <footer>
+    <div class="footer-content">
+      <p class="body-count">予定の合計○件</p>
+      <p class="datetime">今日の日付</p>
+    </div>
+  </footer>
+</div>
