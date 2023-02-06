@@ -43,6 +43,19 @@ header h1 {
   margin-bottom: 18px;
 }
 
+.title h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.new_schedule {
+  background-color: blue;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+
 .table {
   background-color: white;
   width: 100%;
@@ -61,6 +74,10 @@ header h1 {
 footer {
   background-color: white;
   margin-top: 40px;
+}
+
+.index_tbody tr:nth-child(odd){
+  background-color: #eee;
 }
 
 .footer-content {

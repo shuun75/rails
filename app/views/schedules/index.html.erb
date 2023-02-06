@@ -1,7 +1,9 @@
 <div class="container">
   <div class="title">
     <h2>予定一覧</h2>
-    <%= link_to "新規追加", new_schedule_path %>
+    <div class="new_schedule">
+      <%= link_to "新規追加", new_schedule_path %>
+    </div>
   </div>
 
   <table class="table">
@@ -19,7 +21,7 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="index_tbody">
       <% @schedules.each do |schedule|%>
         <tr>
           <td>
@@ -35,13 +37,13 @@
             2023/02/11
           </td>
           <td>
-            <strong>○</strong>
+            <strong><%= schedule.is_all_day? %></strong>
           </td>
           <td>
-            <%= schedule.updated_at %>
+            <%= I18n.l(schedule.updated_at, format: :default) %>
           </td>
           <td>
-            <a href="#">詳細</a>
+            <%= link_to "詳細", schedule_path(schedule) %>
           </td>
           <td>
             <a href="#">編集</a>
@@ -51,13 +53,18 @@
           </td>
         </tr>
       <% end %>
+      <tr>
+        <% if Schedule.count == 0 %>
+          <td colspan=9>現在登録しているスケジュールはありません。</td>
+        <% end %>
+      </tr>
     </tbody>
   </table>
 
   <footer>
     <div class="footer-content">
-      <p class="body-count">予定の合計○件</p>
-      <p class="datetime">今日の日付</p>
+      <p class="body-count">予定の合計<%= Schedule.count %>件</p>
+      <p class="datetime"><%= Date.current.strftime('%Y/%m/%d') %></p>
     </div>
   </footer>
 </div>
