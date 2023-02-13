@@ -6,6 +6,12 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      schedule:
+        title: "タイトル"
+        start_date: "開始日"
+        end_date: "終了日"
+        content: "スケジュールメモ"
   date:
     abbr_day_names:
     - 日
@@ -200,7 +206,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y/%m/%d %H:%M"
+      default: "%Y/%m/%d"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後

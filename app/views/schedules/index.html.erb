@@ -31,10 +31,10 @@
             <%= schedule.title %>
           </td>
           <td>
-            2023/02/03
+            <%= I18n.l(schedule.start_date, format: :default) %>
           </td>
           <td>
-            2023/02/11
+            <%= I18n.l(schedule.end_date, format: :default) %>
           </td>
           <td>
             <strong><%= schedule.is_all_day? %></strong>
@@ -43,13 +43,13 @@
             <%= I18n.l(schedule.updated_at, format: :default) %>
           </td>
           <td>
-            <%= link_to "詳細", schedule_path(schedule) %>
+            <%= link_to "詳細", schedule_path(schedule), class: "link" %>
           </td>
           <td>
-            <a href="#">編集</a>
+            <%= link_to "編集", root_path, class: "link" %>
           </td>
           <td>
-            <a href="#">削除</a>
+            <%= link_to "削除", root_path, class: "link" %>
           </td>
         </tr>
       <% end %>
@@ -64,7 +64,7 @@
   <footer>
     <div class="footer-content">
       <p class="body-count">予定の合計<%= Schedule.count %>件</p>
-      <p class="datetime"><%= Date.current.strftime('%Y/%m/%d') %></p>
+      <p class="datetime">本日の日付<%= Date.current.strftime('%Y/%m/%d') %></p>
     </div>
   </footer>
 </div>

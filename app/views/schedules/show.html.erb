@@ -15,7 +15,7 @@
               開始日
             </th>
             <td>
-              2023/02/01
+              <%= I18n.l(@schedule.start_date, format: :default) %>
             </td>
           </tr>
           <tr>
@@ -23,7 +23,7 @@
               終了日
             </th>
             <td>
-              2023/02/02
+              <%= I18n.l(@schedule.end_date, format: :default) %>
             </td>
           </tr>
           <tr>
@@ -39,6 +39,7 @@
               スケジュールメモ
             </th>
             <td>
+              <%= @schedule.content %>
             </td>
           </tr>
         </tbody>
