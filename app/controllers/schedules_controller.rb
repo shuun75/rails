@@ -14,8 +14,10 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(schedule_params)
     if @schedule.save
-      redirect_to root_path, notice: 'Task is create'
+      flash[:notice] = "スケジュールを追加できました"
+      redirect_to root_path
     else
+      flash[:error] = "保存できませんでした"
       render :new
     end
   end
