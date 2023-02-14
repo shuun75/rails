@@ -49,7 +49,7 @@
             <%= link_to "編集", edit_schedule_path(schedule), class: "link" %>
           </td>
           <td>
-            <%= link_to "削除", root_path, class: "link" %>
+            <%= link_to "削除", schedule_path(schedule), class: "link", data: {method: :delete,confirm: "予定を削除しますか？"} %>
           </td>
         </tr>
       <% end %>

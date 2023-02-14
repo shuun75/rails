@@ -37,6 +37,13 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def destroy
+    schedule = Schedule.find(params[:id])
+    schedule.destroy!
+    flash[:notice] = "予定を削除しました"
+    redirect_to root_path
+  end
+
   private
   def schedule_params
     params.require(:schedule).permit(:title, :start_date, :end_date, :is_all_day, :content)
