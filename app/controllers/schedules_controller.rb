@@ -17,8 +17,23 @@ class SchedulesController < ApplicationController
       flash[:notice] = "スケジュールを追加できました"
       redirect_to root_path
     else
-      flash[:error] = "保存できませんでした"
+      flash.now[:error] = "保存できませんでした"
       render :new
+    end
+  end
+
+  def edit
+    @schedule = Schedule.find(params[:id])
+  end
+
+  def update
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update(schedule_params)
+      flash[:notice] = "編集できました"
+      redirect_to root_path
+    else
+      flash.now[:error] = "編集できませんでした"
+      render :edit
     end
   end
 
